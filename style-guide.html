@@ -6,18 +6,19 @@
 	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,300,700,300italic|Roboto+Slab' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="normalize.css">
 	<link rel="stylesheet" href="styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 </head>
 <body>
 	<header class="fondo-verde clearfix">
 		<div class="logo">Jorge Valencia</div>
 		<nav>
-			<a href="#">Tipografía</a>
-			<a href="#">Colores</a>
-			<a href="#">Botones</a>
-			<a href="#">Formulario</a>
+			<a href="#typo">Tipografía</a>
+			<a href="#color">Colores</a>
+			<a href="#btn">Botones</a>
+			<a href="#form">Formulario</a>
 		</nav>
 	</header>
-	<section class="fondo-azul">
+	<section class="fondo-azul" id="typo">
 		<main class="container">
 			<h1 class="brand-font">Tipografía</h1>
 			<h2>Fonts</h2>
@@ -58,7 +59,7 @@
 			<p><a href="#">Praesent vulputate fermentum nibh</a>, in luctus purus semper vel. <strong>Aenean accumsan</strong>, justo commodo bibendum aliquam, ligula magna elementum libero, eu tempor nulla erat nec nisl. <em>Etiam faucibus lorem</em> et ante <u>tincidunt rutrum sit amet molestie</u> pulvinar.</p>
 		</main>
 	</section>
-	<section class="">
+	<section class="" id="color">
 		<main class="container">
 			<h1 class="brand-font">Colores</h1>
 			<div class="fondo-azul barra">#3A4853</div>
@@ -67,14 +68,14 @@
 			<div class="fondo-claro barra">#F1F0EC</div>
 		</main>
 	</section>
-	<section class="fondo-claro">
+	<section class="fondo-claro" id="btn">
 		<main class="container">
 			<h1 class="brand-font">Botones</h1>
 			<a href="#" class="btn fondo-azul">Esto es un botón princial</a>
 			<a href="#" class="btn fondo-verde">Esto es un botón secundario</a>
 		</main>
 	</section>
-	<section class="fondo-verde">
+	<section class="fondo-verde" id="form">
 		<main class="container">
 			<h1 class="brand-font">Formulario</h1>
 				<form action="">
@@ -87,3 +88,19 @@
 	</section>
 </body>
 </html>
+<script type="text/javascript">
+	$(document).ready(function(){
+	$('a[href^="#"]').on('click',function (e) {
+	    e.preventDefault();
+
+	    var target = this.hash;
+	    var $target = $(target);
+
+	    $('html, body').stop().animate({
+	        'scrollTop': $target.offset().top
+	    }, 900, 'swing', function () {
+	        window.location.hash = target;
+	    });
+	});
+});
+</script>
